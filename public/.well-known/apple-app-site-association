@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "2779FM4QJT.com.yonatan.natcall",
+        "paths": [
+          "/auth/callback",
+          "/auth/callback/*"
+        ]
+      }
+    ]
+  }
+}

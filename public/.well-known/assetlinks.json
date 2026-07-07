@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.natcallapp",
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C",
+        "01:91:6C:64:E4:23:6C:ED:B3:47:49:5B:7F:2F:00:48:DE:E1:4A:B3:DC:B8:E5:C5:95:65:47:15:C0:EC:1A:EF"
+      ]
+    }
+  }
+]
