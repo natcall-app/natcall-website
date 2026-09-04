@@ -69,12 +69,10 @@ test.describe('NatCall public website - landing page QA suite', () => {
     await expect(page.getByRole('heading', { name: /^Ready to Call Home\?$/i })).toBeVisible();
   });
 
-  test('TC_009 - Hero rating stat visibility', async ({ page }) => {
-    // Expected: hero avoids unconfirmed per-minute claims and shows the App Store rating statistic.
-    await expect(page.getByText(/^\$0\.02$/i)).toHaveCount(0);
-    await expect(page.getByText(/^\/ min$/i)).toHaveCount(0);
-    await expect(page.getByText(/^\d\.\d\/5$/i)).toBeVisible();
-    await expect(page.getByText(/^App Store rating/i)).toBeVisible();
+  test('TC_009 - Unverified marketing claims are hidden', async ({ page }) => {
+    await expect(page.getByText(/^4\.8\/5$/i)).toHaveCount(0);
+    await expect(page.getByText(/^Join 500,000\+ users worldwide saving on international calls\.$/i)).toHaveCount(0);
+    await expect(page.getByRole('heading', { name: /^Testimonials$/i })).toHaveCount(0);
   });
 
   test('TC_010 - How it Works section content', async ({ page }) => {
@@ -131,12 +129,11 @@ test.describe('NatCall public website - landing page QA suite', () => {
     await expect(page.getByRole('heading', { name: /^Easy Contacts$/i })).toBeVisible();
   });
 
-  test('TC_015 - Testimonials section', async ({ page }) => {
-    // Expected: testimonials section renders customer names and calling context.
-    await expect(page.getByRole('heading', { name: /^Testimonials$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Amara O\.$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Maria R\.$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Kwame S\.$/i })).toBeVisible();
+  test('TC_015 - Footer legal identity', async ({ page }) => {
+    const footer = page.getByRole('contentinfo');
+
+    await expect(footer.getByText(/^Medhane NatCall, org\. no\. 937 941 358$/i)).toBeVisible();
+    await expect(footer.getByText(/^Copyright 2026 Natcall\. All rights reserved\.$/i)).toBeVisible();
   });
 
   test('TC_016 - Footer CTA section', async ({ page }) => {

@@ -10,14 +10,6 @@ type FeatureIcon =
   | "nosub"
   | "contacts";
 
-type AppStoreLookupResponse = {
-  resultCount: number;
-  results: Array<{
-    averageUserRating?: number;
-    userRatingCount?: number;
-  }>;
-};
-
 export const siteConfig = {
   name: "Natcall",
   url: "https://natcall.com",
@@ -32,47 +24,6 @@ export const siteConfig = {
     youtube: "https://www.youtube.com/@natcallapp",
   },
 };
-
-export const fallbackAppStoreRating = {
-  value: "4.8/5",
-  count: null as number | null,
-};
-
-export async function getAppStoreRating() {
-  const appId = process.env.APPLE_APP_ID;
-  const country = process.env.APPLE_APP_COUNTRY ?? "us";
-
-  if (!appId) {
-    return fallbackAppStoreRating;
-  }
-
-  try {
-    const response = await fetch(
-      `https://itunes.apple.com/lookup?id=${appId}&country=${country}`,
-      {
-        next: { revalidate: 60 * 60 * 12 },
-      },
-    );
-
-    if (!response.ok) {
-      return fallbackAppStoreRating;
-    }
-
-    const data = (await response.json()) as AppStoreLookupResponse;
-    const app = data.results[0];
-
-    if (!app?.averageUserRating) {
-      return fallbackAppStoreRating;
-    }
-
-    return {
-      value: `${app.averageUserRating.toFixed(1)}/5`,
-      count: app.userRatingCount ?? null,
-    };
-  } catch {
-    return fallbackAppStoreRating;
-  }
-}
 
 type MetadataInput = {
   title: string;
@@ -155,45 +106,6 @@ export const features: Array<{ icon: FeatureIcon; title: string; copy: string }>
     icon: "contacts",
     title: "Easy Contacts",
     copy: "Automatically syncs with your phone book for seamless dialing.",
-  },
-];
-
-export const testimonials = [
-  {
-    quote: '"Finally an app that actually has clear lines to Lagos. Been using it for 6 months now!"',
-    name: "Amara O.",
-    meta: "Calls Eritrea weekly",
-    photo: "/images/testimonials/amara-o.png",
-  },
-  {
-    quote: '"The top-up is instant. I never have to worry about my credits running out mid-call."',
-    name: "Maria R.",
-    meta: "Calls Colombia daily",
-    photo: "/images/testimonials/maria-r.png",
-  },
-  {
-    quote: '"Best rates for calling Accra. Crystal clear quality every single time, 10/10."',
-    name: "Kwame S.",
-    meta: "Calls Ghana weekly",
-    photo: "/images/testimonials/kwame-s.png",
-  },
-  {
-    quote: '"My parents can hear me clearly now, and I spend a fraction of what my carrier used to charge."',
-    name: "Priya M.",
-    meta: "Calls India every weekend",
-    photo: "/images/testimonials/priya-m.png",
-  },
-  {
-    quote: '"The app makes long family calls feel simple again. Transparent rates, no surprise deductions."',
-    name: "Lina C.",
-    meta: "Calls the Philippines",
-    photo: "/images/testimonials/lina-c.png",
-  },
-  {
-    quote: '"I use Natcall for business and family calls. The quality has been reliable across countries."',
-    name: "Samir A.",
-    meta: "Calls Morocco and France",
-    photo: "/images/testimonials/samir-a.png",
   },
 ];
 
@@ -384,7 +296,6 @@ export const termsSections = [
 ];
 
 export const aboutStats = [
-  { value: "500,000+", label: "users worldwide" },
   { value: "200+", label: "countries supported" },
   { value: "10M+", label: "minutes called" },
   { value: "99.9%", label: "call success rate" },

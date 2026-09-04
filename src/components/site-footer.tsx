@@ -294,6 +294,7 @@ export function SiteFooter() {
             <h2 className={`font-semibold ${titleClassName}`}>Contact</h2>
             <div className="mt-6 grid gap-2 text-[13px] text-[#aaaaaa]">
               <span>Address: {contact.address}</span>
+              <span>Medhane NatCall, org. no. 937 941 358</span>
               <span>Phone: {contact.phone}</span>
               <span>Support Email: {contact.supportEmail}</span>
               <span>Support WhatsApp: {contact.supportWhatsapp}</span>
@@ -303,8 +304,7 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col items-center gap-4 border-t border-[#2a2a2a] pt-8 text-center sm:mt-12 lg:flex-row lg:justify-between lg:text-left">
           <p className="text-[12px] text-[#aaaaaa]">
-            Copyright {foundingYear}-{currentYear} Natcall. All rights
-            reserved.
+            Copyright 2026 Natcall. All rights reserved.
           </p>
           <div className="flex items-center gap-3 text-[#9d9d9d]">
             {socialLinks.map((link) => {

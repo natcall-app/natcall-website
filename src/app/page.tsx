@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { DownloadButtons } from "@/components/download-buttons";
 import { HeroBackgroundMedia } from "@/components/hero-background-media";
 import { HeroParallax } from "@/components/hero-parallax";
@@ -10,9 +9,7 @@ import { getPricingRates } from "@/lib/pricing-rates";
 import {
   createMetadata,
   features,
-  getAppStoreRating,
   howItWorks,
-  testimonials,
   trustMarks,
 } from "@/lib/site";
 
@@ -244,8 +241,7 @@ const securityCards = [
 ];
 
 export default async function HomePage() {
-  const [appStoreRating, heroMedia, downloadLinks, pricingRates] = await Promise.all([
-    getAppStoreRating(),
+  const [heroMedia, downloadLinks, pricingRates] = await Promise.all([
     getHeroMedia(),
     getDownloadLinks(),
     getPricingRates(),
@@ -279,22 +275,6 @@ export default async function HomePage() {
               Crystal clear international calling with no hidden fees. Connect
               with loved ones across the globe at local rates.
             </p>
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <div className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <span className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-[#2a2a2a] bg-[#1c1c1c] px-4 py-2 text-[13px] text-[#aaaaaa]">
-                <strong className="text-sm font-bold text-[#f6c617]">
-                  {appStoreRating.value}
-                </strong>
-                <span>
-                  App Store rating
-                  {appStoreRating.count
-                    ? ` (${appStoreRating.count.toLocaleString()} reviews)`
-                    : ""}
-                </span>
-              </span>
-            </div>
           </Reveal>
 
           <div className="mt-8 grid w-full gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-4 lg:justify-start">
@@ -586,61 +566,6 @@ export default async function HomePage() {
       </section>
 
       <section
-        id="testimonials"
-        className="mx-auto w-full max-w-[1200px] px-4 pb-14 pt-4 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8"
-      >
-        <div className="text-center">
-          <Reveal>
-            <h2 className="text-[clamp(2.25rem,4vw,36px)] font-extrabold leading-[1.2] tracking-[-0.01em] text-white">
-              Testimonials
-            </h2>
-          </Reveal>
-        </div>
-
-        <RevealGroup
-          className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          delay={0.1}
-          stagger={0.08}
-        >
-          {testimonials.map((testimonial) => (
-            <RevealItem
-              key={testimonial.name}
-              direction="up"
-              duration={0.55}
-              whileHover={{ y: -6, scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
-            >
-              <article className="flex h-full min-h-[260px] flex-col rounded-xl border border-[#2a2a2a] bg-[#1c1c1c] p-5 transition-all duration-300 hover:border-[#f6c617]/30 hover:bg-[#211f17]">
-                <div className="flex items-center gap-3">
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-[#f6c617]/25 bg-[#111111]">
-                    <Image
-                      src={testimonial.photo}
-                      alt=""
-                      fill
-                      className="object-cover"
-                      sizes="48px"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="text-[15px] font-semibold text-white">
-                      {testimonial.name}
-                    </h3>
-                    <p className="mt-1 text-[12px] leading-5 text-[#f6c617]">
-                      {testimonial.meta}
-                    </p>
-                  </div>
-                </div>
-
-                <p className="mt-5 text-[14px] leading-7 text-[#d0d0d0]">
-                  {testimonial.quote}
-                </p>
-              </article>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </section>
-
-      <section
         id="download"
         className="mx-auto w-full max-w-[1200px] px-4 pb-16 pt-14 text-center sm:px-6 sm:pb-20 sm:pt-20 lg:px-8"
       >
@@ -648,7 +573,7 @@ export default async function HomePage() {
           Ready to Call Home?
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-[1.6] text-[#d0d0d0] sm:mt-6 sm:text-[20px] sm:leading-[1.5]">
-          Join 500,000+ users worldwide saving on international calls.
+          Download Natcall to make affordable international calls.
         </p>
         <div className="mt-8 grid gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:justify-center sm:gap-4">
           <Reveal delay={0.1}>
