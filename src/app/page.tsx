@@ -283,12 +283,6 @@ export default async function HomePage() {
 
           <Reveal delay={0.3}>
             <div className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#2a2a2a] bg-[#1c1c1c] px-4 py-2 text-[13px] text-[#aaaaaa]">
-                <strong className="text-sm font-bold text-[#f6c617]">
-                  $0.02
-                </strong>
-                <span>/ min</span>
-              </span>
               <span className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-[#2a2a2a] bg-[#1c1c1c] px-4 py-2 text-[13px] text-[#aaaaaa]">
                 <strong className="text-sm font-bold text-[#f6c617]">
                   {appStoreRating.value}

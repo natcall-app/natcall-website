@@ -12,6 +12,8 @@ type RateCardResponse = {
   country_name?: string;
   ratePerMinuteCents?: number;
   rate_per_minute_cents?: number;
+  rateConfirmed?: boolean;
+  rate_confirmed?: boolean;
   typicalCarrier?: string;
   typical_carrier?: string;
   savings?: string;
@@ -47,9 +49,16 @@ export async function getPricingRates(): Promise<PricingRate[]> {
   }
 }
 
+function requiresRateConfirmation(country: string) {
+  return country === "eritrea" || country === "ethiopia";
+}
+
 function normalizePricingRate(rate: RateCardResponse): PricingRate | null {
   const country = rate.countryName || rate.country_name || "";
   const rateCents = rate.ratePerMinuteCents ?? rate.rate_per_minute_cents ?? 0;
+  const rateConfirmed = rate.rateConfirmed ?? rate.rate_confirmed ?? false;
+  const showRate =
+    !requiresRateConfirmation(country.toLowerCase()) || rateConfirmed;
 
   if (!country) {
     return null;
@@ -57,8 +66,12 @@ function normalizePricingRate(rate: RateCardResponse): PricingRate | null {
 
   return {
     country,
-    natcall: rateCents > 0 ? `$${(rateCents / 100).toFixed(2)}` : "TBC",
-    carrier: rate.typicalCarrier || rate.typical_carrier || "TBC",
-    savings: rate.savings || "TBC",
+    natcall: showRate && rateCents > 0
+      ? "$" + (rateCents / 100).toFixed(2)
+      : "TBC",
+    carrier: showRate
+      ? rate.typicalCarrier || rate.typical_carrier || "TBC"
+      : "TBC",
+    savings: showRate ? rate.savings || "TBC" : "TBC",
   };
 }

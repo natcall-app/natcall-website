@@ -69,10 +69,10 @@ test.describe('NatCall public website - landing page QA suite', () => {
     await expect(page.getByRole('heading', { name: /^Ready to Call Home\?$/i })).toBeVisible();
   });
 
-  test('TC_009 - Hero pricing and rating stats visibility', async ({ page }) => {
-    // Expected: hero shows the starting per-minute price and App Store rating statistic.
-    await expect(page.getByText(/^\$0\.02$/i)).toBeVisible();
-    await expect(page.getByText(/^\/ min$/i)).toBeVisible();
+  test('TC_009 - Hero rating stat visibility', async ({ page }) => {
+    // Expected: hero avoids unconfirmed per-minute claims and shows the App Store rating statistic.
+    await expect(page.getByText(/^\$0\.02$/i)).toHaveCount(0);
+    await expect(page.getByText(/^\/ min$/i)).toHaveCount(0);
     await expect(page.getByText(/^\d\.\d\/5$/i)).toBeVisible();
     await expect(page.getByText(/^App Store rating/i)).toBeVisible();
   });
@@ -107,11 +107,11 @@ test.describe('NatCall public website - landing page QA suite', () => {
     await expect(
       table.getByRole('row', { name: /^Country Natcall Rate Typical Carrier Savings$/i }),
     ).toBeVisible();
-    await expect(table.getByRole('row', { name: /^Eritrea \$0\.07\/min \$0\.89\/min Up to 92%$/i })).toBeVisible();
-    await expect(table.getByRole('row', { name: /^Ghana \$0\.08\/min \$0\.75\/min Up to 89%$/i })).toBeVisible();
-    await expect(table.getByRole('row', { name: /^India \$0\.03\/min \$0\.35\/min Up to 91%$/i })).toBeVisible();
-    await expect(table.getByRole('row', { name: /^Ethiopia \$0\.12\/min \$1\.05\/min Up to 89%$/i })).toBeVisible();
-    await expect(table.getByRole('row', { name: /^Philippines \$0\.05\/min \$0\.49\/min Up to 90%$/i })).toBeVisible();
+    await expect(table.getByRole('row', { name: /^Eritrea TBC TBC TBC$/i })).toBeVisible();
+    await expect(table.getByRole('row', { name: /^Ghana \$0\.08 \$0\.75 89%$/i })).toBeVisible();
+    await expect(table.getByRole('row', { name: /^India \$0\.03 \$0\.35 91%$/i })).toBeVisible();
+    await expect(table.getByRole('row', { name: /^Ethiopia TBC TBC TBC$/i })).toBeVisible();
+    await expect(table.getByRole('row', { name: /^Philippines \$0\.05 \$0\.49 90%$/i })).toBeVisible();
   });
 
   test('TC_013 - Security and Encryption section', async ({ page }) => {
