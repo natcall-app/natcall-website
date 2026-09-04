@@ -234,7 +234,7 @@ const socialIconMap: Record<SocialPlatform, { icon: React.ReactNode; label: stri
   },
 };
 
-const foundingYear = 2018;
+const foundingYear = 2026;
 
 export function SiteFooter() {
   const pathname = usePathname();
@@ -242,10 +242,9 @@ export function SiteFooter() {
     useState<SocialLink[]>(fallbackSocialLinks);
   const variant = getVariant(pathname);
   const titleClassName = variant.titleClassName ?? "text-[1.05rem] text-white";
-  const currentYear = new Date().getFullYear();
   const lead =
     variant === footerVariants.home
-      ? `Connecting families across borders since ${foundingYear}-${currentYear}. ${variant.lead}`
+      ? `Connecting families across borders since ${foundingYear}. ${variant.lead}`
       : variant.lead;
 
   const [contact, setContact] =
