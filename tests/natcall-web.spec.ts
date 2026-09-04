@@ -85,19 +85,15 @@ test.describe('NatCall public website - landing page QA suite', () => {
     await expect(page.getByRole('heading', { name: /^Call Home$/i })).toBeVisible();
   });
 
-  test('TC_011 - Pricing section package details', async ({ page }) => {
-    // Expected: pricing section shows the popular package, minute bundle, and top-up amounts.
+  test('TC_011 - Credit package pricing', async ({ page }) => {
+    // Expected: website credit packages match the app prices.
     const pricingSection = page.locator('section#pricing');
 
     await expect(pricingSection.getByRole('heading', { name: /^Transparent Pricing$/i })).toBeVisible();
-    await expect(pricingSection.getByText(/^Most Popular$/i)).toBeVisible();
-    await expect(pricingSection.getByText(/^\$6$/i)).toBeVisible();
-    await expect(pricingSection.getByText(/^\/ 60 mins$/i)).toBeVisible();
-    await expect(pricingSection.getByText(/^Average rate of \$0\.10\/min$/i)).toBeVisible();
-    await expect(pricingSection.getByText(/^\+\$5$/i)).toBeVisible();
-    await expect(pricingSection.getByText(/^\+\$10$/i)).toBeVisible();
-    await expect(pricingSection.getByText(/^\+\$20$/i)).toBeVisible();
-    await expect(pricingSection.getByText(/^\+\$50$/i)).toBeVisible();
+    await expect(pricingSection.getByText(/^\$5 credit$/i)).toBeVisible();
+    await expect(pricingSection.getByText(/^69 kr$/i)).toBeVisible();
+    await expect(pricingSection.getByText(/^\$10 credit$/i)).toBeVisible();
+    await expect(pricingSection.getByText(/^139 kr$/i)).toBeVisible();
   });
 
   test('TC_012 - Country pricing table rows', async ({ page }) => {

@@ -406,6 +406,25 @@ export default async function HomePage() {
                   </li>
                 ))}
               </ul>
+
+              <div className="grid w-full gap-3 pt-2 sm:grid-cols-2">
+                {[
+                  { credit: "$5 credit", price: "69 kr" },
+                  { credit: "$10 credit", price: "139 kr" },
+                ].map((packageOption) => (
+                  <div
+                    key={packageOption.credit}
+                    className="rounded-xl border border-[#f5c518]/20 bg-[#111111]/70 px-5 py-4"
+                  >
+                    <p className="text-sm text-[#bdbdbd]">
+                      {packageOption.credit}
+                    </p>
+                    <p className="mt-1 text-2xl font-bold text-[#f6c617]">
+                      {packageOption.price}
+                    </p>
+                  </div>
+                ))}
+              </div>
           </div>
         </Reveal>
 
