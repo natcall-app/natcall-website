@@ -388,19 +388,13 @@ export default async function HomePage() {
               </ul>
 
               <div className="grid w-full gap-3 pt-2 sm:grid-cols-2">
-                {[
-                  { credit: "$5 credit", price: "69 kr" },
-                  { credit: "$10 credit", price: "139 kr" },
-                ].map((packageOption) => (
+                {["$5 credit", "$10 credit"].map((price) => (
                   <div
-                    key={packageOption.credit}
+                    key={price}
                     className="rounded-xl border border-[#f5c518]/20 bg-[#111111]/70 px-5 py-4"
                   >
-                    <p className="text-sm text-[#bdbdbd]">
-                      {packageOption.credit}
-                    </p>
-                    <p className="mt-1 text-2xl font-bold text-[#f6c617]">
-                      {packageOption.price}
+                    <p className="text-2xl font-bold text-[#f6c617]">
+                      {price}
                     </p>
                   </div>
                 ))}
@@ -408,6 +402,15 @@ export default async function HomePage() {
           </div>
         </Reveal>
 
+        <Reveal delay={0.18}>
+          <div className="mt-8 rounded-xl border border-[#f5c518]/20 bg-[#111111]/60 px-6 py-5 text-center">
+            <p className="text-[16px] font-medium text-white">
+              Our rates are very affordable compared to standard carriers.
+            </p>
+          </div>
+        </Reveal>
+
+        {/* Competitor comparison table commented out in favor of general rates messaging
         <Reveal delay={0.18}>
           <div
             className={`relative mt-10 overflow-x-auto rounded-xl border border-[#2a2a2a] bg-[#111111] ${
@@ -452,6 +455,7 @@ export default async function HomePage() {
             </table>
           </div>
         </Reveal>
+        */}
       </section>
 
       <section

@@ -89,23 +89,15 @@ test.describe('NatCall public website - landing page QA suite', () => {
 
     await expect(pricingSection.getByRole('heading', { name: /^Transparent Pricing$/i })).toBeVisible();
     await expect(pricingSection.getByText(/^\$5 credit$/i)).toBeVisible();
-    await expect(pricingSection.getByText(/^69 kr$/i)).toBeVisible();
     await expect(pricingSection.getByText(/^\$10 credit$/i)).toBeVisible();
-    await expect(pricingSection.getByText(/^139 kr$/i)).toBeVisible();
   });
 
-  test('TC_012 - Country pricing table rows', async ({ page }) => {
-    // Expected: country rate table lists Natcall rate, typical carrier rate, and savings.
-    const table = page.getByRole('table');
-
+  test('TC_012 - Rates messaging', async ({ page }) => {
+    // Expected: general affordable rates messaging is displayed.
+    const pricingSection = page.locator('section#pricing');
     await expect(
-      table.getByRole('row', { name: /^Country Natcall Rate Typical Carrier Savings$/i }),
+      pricingSection.getByText(/Our rates are very affordable compared to standard carriers\./i),
     ).toBeVisible();
-    await expect(table.getByRole('row', { name: /^Eritrea TBC TBC TBC$/i })).toBeVisible();
-    await expect(table.getByRole('row', { name: /^Ghana \$0\.08 \$0\.75 89%$/i })).toBeVisible();
-    await expect(table.getByRole('row', { name: /^India \$0\.03 \$0\.35 91%$/i })).toBeVisible();
-    await expect(table.getByRole('row', { name: /^Ethiopia TBC TBC TBC$/i })).toBeVisible();
-    await expect(table.getByRole('row', { name: /^Philippines \$0\.05 \$0\.49 90%$/i })).toBeVisible();
   });
 
   test('TC_013 - Security and Encryption section', async ({ page }) => {

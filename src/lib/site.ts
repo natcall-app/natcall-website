@@ -66,7 +66,7 @@ export const howItWorks: Array<{ title: string; copy: string; icon: HowItWorksIc
   },
   {
     title: "Add Credits",
-    copy: "Top up your account starting from as low as $1.",
+    copy: "Top up your account starting from as low as $5.",
     icon: "credits",
   },
   {
