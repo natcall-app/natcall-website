@@ -6,6 +6,7 @@ import {
   getLegalContentBlocks,
   getLegalDocument,
 } from "@/lib/legal-documents";
+import { getContactInfo } from "@/lib/contact-info";
 import { createMetadata } from "@/lib/site";
 
 export const metadata = createMetadata({
@@ -70,8 +71,40 @@ function SectionBody({ paragraphs }: { paragraphs: string[] }) {
 }
 
 export default async function PrivacyPolicyPage() {
-  const document = await getLegalDocument("privacy");
-  const contentBlocks = getLegalContentBlocks(document.content);
+  const [document, contact] = await Promise.all([
+    getLegalDocument("privacy"),
+    getContactInfo(),
+  ]);
+  const cmsBlocks = getLegalContentBlocks(document.content);
+  const cmsSectionIds = new Set(
+    cmsBlocks.flatMap((block) => (block.type === "section" ? [sectionId(block.heading)] : [])),
+  );
+  const extraSections: LegalContentBlock[] = [
+    {
+      type: "section",
+      heading: "Third-Party Data Protection",
+      paragraphs: [
+        "We only share data with trusted service providers that need it to run Natcall, such as hosting, payment, and calling partners. These providers are required to keep your data secure, use it only to provide their services to us, and protect it with industry-standard safeguards such as encryption and access controls.",
+      ],
+    },
+    {
+      type: "section",
+      heading: "Contact",
+      paragraphs: [
+        "If you have questions about this Privacy Policy or want to exercise your privacy rights, contact us:",
+        `- Email: ${contact.supportEmail}`,
+        `- Phone: ${contact.phone}`,
+        `- WhatsApp: ${contact.supportWhatsapp}`,
+        `- Address: ${contact.address}`,
+      ],
+    },
+  ];
+  const contentBlocks = [
+    ...cmsBlocks,
+    ...extraSections.filter(
+      (block) => block.type === "section" && !cmsSectionIds.has(sectionId(block.heading)),
+    ),
+  ];
   const sections = contentBlocks.filter((block) => block.type === "section");
   const navSections = sections.map((block, index) => ({
     id: sectionId(block.heading),
@@ -151,14 +184,14 @@ export default async function PrivacyPolicyPage() {
                   Questions or Concerns?
                 </h2>
                 <p className="mt-2 text-[15px] text-black/80">
-                  Our privacy team is available to assist you with any inquiries.
+                  Our support team is available to assist you with any privacy inquiries.
                 </p>
               </div>
               <a
-                href="mailto:privacy@natcall.io?subject=Natcall%20Privacy%20Request"
+                href={`mailto:${contact.supportEmail}?subject=Natcall%20Privacy%20Request`}
                 className="btn-premium-secondary inline-flex h-12 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-black/20 bg-[#111] px-7 text-sm font-semibold text-white"
               >
-                Email Privacy Team
+                Email Support
               </a>
             </div>
           </div>

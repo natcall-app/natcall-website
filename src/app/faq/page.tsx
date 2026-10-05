@@ -32,10 +32,10 @@ export default function FaqPage() {
               Still have questions?
             </h2>
               <p className="mb-6 max-w-[310px] text-[15px] leading-[1.7] text-[#aaaaaa] sm:text-[16px]">
-                Can&apos;t find the answer you&apos;re looking for? Our elite support team is ready to assist you 24/7.
+                Can&apos;t find the answer you&apos;re looking for? Our support team is ready to assist you.
             </p>
               <a
-                href="mailto:natcallapp@gmail.com?subject=Natcall%20Support"
+                href="mailto:support@natcall.com?subject=Natcall%20Support"
                 className="btn-premium-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#383838] bg-[#242424] py-3 text-base font-bold text-white"
               >
                 <span className="inline-flex h-6 w-6 items-center justify-center text-[#f5c518]">

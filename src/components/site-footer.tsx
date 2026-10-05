@@ -55,6 +55,7 @@ const footerVariants: Record<string, FooterVariant> = {
         links: [
           { label: "Help Center", href: "/faq" },
           { label: "Delete Account", href: "/delete-account" },
+          { label: "Privacy Policy", href: "/privacy-policy" },
           { label: "Contact Us", href: "/contact" },
           { label: "FAQ", href: "/faq" },
         ],

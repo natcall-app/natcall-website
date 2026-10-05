@@ -369,8 +369,6 @@ export default async function HomePage() {
               </h2>
               <p className="text-[16px] leading-[1.6] text-[#aaaaaa]">
                 No hidden fees, no connection charges, no expiry on credits.
-                <br />
-                Final provider rates will be updated here once confirmed.
               </p>
               <ul className="grid gap-4 text-[15px] tracking-[0.01em] text-white">
                 {[
