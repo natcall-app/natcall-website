@@ -80,7 +80,7 @@ export const features: Array<{ icon: FeatureIcon; title: string; copy: string }>
   {
     icon: "rates",
     title: "Affordable Rates",
-    copy: "Saving you up to 90% on international calls compared to your local carrier.",
+    copy: "Affordable international calls compared to standard carriers, with transparent per-minute pricing.",
   },
   {
     icon: "quality",
@@ -160,18 +160,23 @@ export const faqItems = [
 export const privacySections = [
   { id: "introduction", label: "1. Introduction" },
   { id: "collection", label: "2. Data Collection" },
-  { id: "usage", label: "3. How We Use Data" },
-  { id: "security", label: "4. Data Security" },
-  { id: "partners", label: "5. Third-Party Partners" },
-  { id: "rights", label: "6. Your Rights" },
-  { id: "gdpr", label: "7. GDPR Compliance" },
-  { id: "contact", label: "8. Contact Us" },
+  { id: "contacts", label: "3. Contact Permissions & Usage" },
+  { id: "usage", label: "4. How We Use Data" },
+  { id: "security", label: "5. Data Security" },
+  { id: "partners", label: "6. Third-Party Partners" },
+  { id: "rights", label: "7. Your Rights" },
+  { id: "gdpr", label: "8. GDPR Compliance" },
+  { id: "contact", label: "9. Contact Us" },
 ];
 
 export const privacyHighlights = [
   {
     title: "Personal Information",
     copy: "We collect account details such as your name, email address, and phone number to verify your identity and maintain account security.",
+  },
+  {
+    title: "Contact Information (Consent-Based)",
+    copy: "Only with your explicit permission, we access and sync your address book contacts solely to display names and enable one-tap international calling. We never sell or share your contacts.",
   },
   {
     title: "Technical Data",
@@ -297,8 +302,6 @@ export const termsSections = [
 
 export const aboutStats = [
   { value: "200+", label: "countries supported" },
-  { value: "10M+", label: "minutes called" },
-  { value: "99.9%", label: "call success rate" },
 ];
 
 export const values = [
@@ -312,7 +315,7 @@ export const values = [
   },
   {
     title: "Affordability",
-    copy: "Up to 90% cheaper than local carriers",
+    copy: "Affordable rates with no hidden fees",
   },
   {
     title: "Trust",

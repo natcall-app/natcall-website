@@ -134,39 +134,58 @@ export default function PressPage() {
         </section>
 
         <section className="mt-8 grid gap-5 text-center lg:grid-cols-[1.1fr_0.9fr] lg:text-left">
-          <article className="rounded-xl border border-[#2a2a2a] bg-[#151515] p-6">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#f6c617]">
-              Available on request
-            </p>
-            <h2 className="mt-3 text-2xl font-bold text-white">
-              Media kit assets
-            </h2>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              {kitItems.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-lg border border-[#2a2a2a] bg-[#101010] px-4 py-3 text-[14px] text-[#d8d8d8]"
-                >
-                  {item}
-                </div>
-              ))}
+          <article className="flex flex-col justify-between rounded-xl border border-[#2a2a2a] bg-[#151515] p-6 sm:p-7">
+            <div>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#f6c617]">
+                Available on request
+              </p>
+              <h2 className="mt-2 text-2xl font-bold text-white">
+                Media kit assets
+              </h2>
+              <p className="mt-2 text-[14px] text-[#9a9a9a]">
+                High-resolution assets available for press coverage and publications:
+              </p>
+
+              <ul className="mt-8 grid gap-3 gap-y-5 sm:grid-cols-2 text-left">
+                {kitItems.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2.5 text-[14px] text-[#d6d6d6]"
+                  >
+                    <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#f6c617]/15 text-[#f6c617]">
+                      <svg aria-hidden="true" className="h-2.5 w-2.5" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="m5 13 4 4L19 7"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2.5"
+                        />
+                      </svg>
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </article>
 
-          <article className="shimmer-border rounded-xl border border-[#3c3418] bg-[#19150b] p-6">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#f6c617]">
-              Press contact
-            </p>
-            <h2 className="mt-3 text-2xl font-bold text-white">
-              For interviews, assets, and company background.
-            </h2>
-            <p className="mt-4 text-[14px] leading-7 text-[#d8d0b6]">
-              For media requests, product screenshots, founder background, or
-              approved brand assets, contact the Natcall team directly.
-            </p>
+          <article className="shimmer-border flex flex-col justify-between rounded-xl border border-[#3c3418] bg-[#19150b] p-6 sm:p-7">
+            <div>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#f6c617]">
+                Press contact
+              </p>
+              <h2 className="mt-2 text-2xl font-bold text-white">
+                For interviews, assets, and company background.
+              </h2>
+              <p className="mt-3 text-[14px] leading-7 text-[#d8d0b6]">
+                For media requests, product screenshots, founder background, or
+                approved brand assets, contact the Natcall team directly.
+              </p>
+            </div>
             <a
               href="mailto:natcallapp@gmail.com?subject=Natcall%20Press%20Request"
-              className="btn-premium-primary mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#f6c617] px-4 py-3 text-sm font-bold text-black"
+              className="btn-premium-primary mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#f6c617] px-4 py-3 text-sm font-bold text-black transition hover:bg-[#ffcf24]"
             >
               natcallapp@gmail.com
             </a>

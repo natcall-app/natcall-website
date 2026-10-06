@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { createMetadata, aboutStats, team, values } from "@/lib/site";
+import { createMetadata, team, values } from "@/lib/site";
 
 export const metadata = createMetadata({
   title: "About Us",
@@ -76,13 +76,34 @@ export default function AboutPage() {
           </article>
         </section>
 
-        <section className="grid gap-4 border-y border-[#2a2a2a] py-10 sm:grid-cols-2 sm:py-12 lg:grid-cols-4">
-          {aboutStats.map((stat) => (
-            <article key={stat.label} className="rounded-xl bg-[#151515] p-5 text-center lg:text-left">
-              <p className="text-3xl font-extrabold text-[#f6c617]">{stat.value}</p>
-              <p className="mt-2 text-sm text-[#aaaaaa]">{stat.label}</p>
-            </article>
-          ))}
+        <section className="py-8 sm:py-10">
+          <div className="relative overflow-hidden rounded-2xl border border-[#2a2a2a] bg-gradient-to-r from-[#181818] via-[#141414] to-[#101010] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_16px_40px_rgba(0,0,0,0.25)]">
+            <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-[#f6c617]/25 bg-[#f6c617]/10 text-[#f6c617] shadow-[0_0_24px_rgba(246,198,23,0.12)]">
+                <svg aria-hidden="true" className="h-8 w-8" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
+                  <path d="M3.6 9h16.8M3.6 15h16.8" stroke="currentColor" strokeWidth="1.8" />
+                  <path d="M12 3a14 14 0 0 0 0 18M12 3a14 14 0 0 1 0 18" stroke="currentColor" strokeWidth="1.8" />
+                </svg>
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                  <p className="text-3xl sm:text-4xl font-extrabold text-[#f6c617]">200+</p>
+                  <span className="text-xl sm:text-2xl font-bold text-white">Countries & Territories</span>
+                </div>
+                <p className="mt-1.5 text-sm sm:text-base text-[#a0a0a0]">
+                  Connecting diaspora families across the globe with transparent pricing and reliable routes.
+                </p>
+              </div>
+            </div>
+
+            <div className="shrink-0">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#f6c617]/30 bg-[#f6c617]/10 px-4 py-2 text-xs sm:text-sm font-semibold text-[#f6c617]">
+                <span className="h-2 w-2 rounded-full bg-[#f6c617]" />
+                Global Calling Coverage
+              </span>
+            </div>
+          </div>
         </section>
 
         <section className="py-12 text-center sm:py-16 lg:text-left">

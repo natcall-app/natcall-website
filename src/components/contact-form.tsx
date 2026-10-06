@@ -161,7 +161,7 @@ export function ContactForm() {
 
       <p className="flex items-start justify-center gap-3 text-center text-[13px] font-semibold leading-5 text-[#777777] sm:items-center sm:text-[14px]">
         <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#47e384] sm:mt-0" />
-        Team is online - typically replies within 2 hours
+        Team is online - typically replies within 24 hours
       </p>
     </form>
   );
