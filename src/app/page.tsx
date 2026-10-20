@@ -258,7 +258,7 @@ export default async function HomePage() {
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(17,17,17,0.95)_0%,rgba(17,17,17,0.78)_44%,rgba(17,17,17,0.46)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-[#111111] to-transparent" />
 
-        <div className="mx-auto grid min-h-[calc(100vh-73px)] w-full max-w-[1200px] gap-8 px-4 py-9 sm:px-6 md:grid-cols-[minmax(0,1fr)_minmax(260px,360px)] md:items-center md:gap-7 md:py-12 lg:grid-cols-[minmax(0,1fr)_520px] lg:gap-12 lg:px-8 lg:py-16">
+        <div className="mx-auto grid min-h-[calc(100vh-73px)] w-full max-w-[1200px] gap-8 px-4 py-9 sm:px-6 md:grid-cols-[minmax(0,1fr)_minmax(260px,360px)] md:items-center md:gap-7 md:py-12 lg:grid-cols-[minmax(0,1fr)_520px] lg:gap-12 lg:px-8 lg:py-12 lg:min-h-[calc(100vh-73px-210px)]">
         <div className="flex max-w-[560px] flex-col items-center text-center lg:items-start lg:text-left">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-[6px] border border-[#3c3418] bg-[#19150b] px-3 py-1 text-[13px] font-medium text-[#f6c617] lg:self-start">
@@ -293,6 +293,10 @@ export default async function HomePage() {
           </div>
         </Reveal>
         </div>
+
+        <Reveal delay={0.5}>
+          <CreditPacks />
+        </Reveal>
       </section>
 
       <AppShowcase />
@@ -458,8 +462,6 @@ export default async function HomePage() {
         </Reveal>
         */}
       </section>
-
-      <CreditPacks />
 
       <section
         id="security"
