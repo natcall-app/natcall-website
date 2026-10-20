@@ -221,6 +221,24 @@
   }
 }
 
+.country-ticker-track {
+  animation: country-ticker-scroll 70s linear infinite;
+}
+
+.country-ticker:hover .country-ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes country-ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes border-shimmer {
   from {
     background-position: 180% 0;
@@ -241,7 +259,8 @@
   .nav-link-premium,
   .btn-premium-primary::before,
   .btn-premium-secondary::before,
-  .shimmer-border::before {
+  .shimmer-border::before,
+  .country-ticker-track {
     animation: none;
     transition-duration: 0ms;
   }

@@ -6,6 +6,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 import { getHeroMedia } from "@/lib/hero-media";
 import { getDownloadLinks } from "@/lib/download-links";
 import { getPricingRates } from "@/lib/pricing-rates";
+import { CountryTicker } from "@/components/country-ticker";
 import {
   createMetadata,
   features,
@@ -249,6 +250,7 @@ export default async function HomePage() {
 
   return (
     <main className="pb-16">
+      <CountryTicker />
       <section className="relative isolate overflow-hidden">
         <HeroBackgroundMedia heroMedia={heroMedia} />
         <div className="absolute inset-0 -z-20 bg-[#111111]/62" />
