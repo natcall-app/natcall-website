@@ -285,12 +285,6 @@ export default async function HomePage() {
               <DownloadButtons downloadLinks={downloadLinks} variant="hero" />
             </Reveal>
           </div>
-
-          <Reveal delay={0.45}>
-            <div className="mt-8 flex w-full justify-center lg:justify-start">
-              <CreditPacks />
-            </div>
-          </Reveal>
         </div>
 
         <Reveal direction="right" delay={0.2}>
@@ -464,6 +458,8 @@ export default async function HomePage() {
         </Reveal>
         */}
       </section>
+
+      <CreditPacks />
 
       <section
         id="security"
