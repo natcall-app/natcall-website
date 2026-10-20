@@ -295,8 +295,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <CreditPacks />
-
       <AppShowcase />
 
       <section className="border-y border-[#2a2a2a] bg-[#0d0d0d] py-6 sm:py-8">
@@ -460,6 +458,8 @@ export default async function HomePage() {
         </Reveal>
         */}
       </section>
+
+      <CreditPacks />
 
       <section
         id="security"
