@@ -7,6 +7,7 @@ import { getHeroMedia } from "@/lib/hero-media";
 import { getDownloadLinks } from "@/lib/download-links";
 import { getPricingRates } from "@/lib/pricing-rates";
 import { CountryTicker } from "@/components/country-ticker";
+import { CreditPacks } from "@/components/credit-packs";
 import {
   createMetadata,
   features,
@@ -284,6 +285,12 @@ export default async function HomePage() {
               <DownloadButtons downloadLinks={downloadLinks} variant="hero" />
             </Reveal>
           </div>
+
+          <Reveal delay={0.45}>
+            <div className="mt-8 flex w-full justify-center lg:justify-start">
+              <CreditPacks />
+            </div>
+          </Reveal>
         </div>
 
         <Reveal direction="right" delay={0.2}>
