@@ -16,12 +16,12 @@ export const siteConfig = {
   description:
     "Crystal clear international calling with transparent pricing, premium voice quality, and instant top-up.",
   social: {
-    instagram: "https://www.instagram.com/natcallapp",
+    instagram: "https://www.instagram.com/natcall_app",
     twitter: "https://twitter.com/natcallapp",
     linkedin: "https://www.linkedin.com/company/natcall",
     facebook: "https://www.facebook.com/natcallapp",
-    tiktok: "https://www.tiktok.com/@natcallapp",
-    youtube: "https://www.youtube.com/@natcallapp",
+    tiktok: "https://www.tiktok.com/@natcall91",
+    youtube: "https://www.youtube.com/@Natnaatv",
   },
 };
 
