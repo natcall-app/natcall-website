@@ -222,7 +222,7 @@
 }
 
 .country-ticker-track {
-  animation: country-ticker-scroll 70s linear infinite;
+  animation: country-ticker-scroll 420s linear infinite;
 }
 
 .country-ticker:hover .country-ticker-track {

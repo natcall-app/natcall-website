@@ -1,7 +1,7 @@
 import { DownloadButtons } from "@/components/download-buttons";
 import { HeroBackgroundMedia } from "@/components/hero-background-media";
 import { HeroParallax } from "@/components/hero-parallax";
-import { PopularDestinationsCarousel } from "@/components/popular-destinations-carousel";
+import { AppShowcase } from "@/components/app-showcase";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 import { getHeroMedia } from "@/lib/hero-media";
 import { getDownloadLinks } from "@/lib/download-links";
@@ -294,7 +294,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <PopularDestinationsCarousel />
+      <AppShowcase />
 
       <section className="border-y border-[#2a2a2a] bg-[#0d0d0d] py-6 sm:py-8">
         <Reveal>
