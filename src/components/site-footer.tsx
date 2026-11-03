@@ -304,7 +304,7 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col items-center gap-4 border-t border-[#2a2a2a] pt-8 text-center sm:mt-12 lg:flex-row lg:justify-between lg:text-left">
           <p className="text-[12px] text-[#aaaaaa]">
-            Copyright 2026 Natcall. All rights reserved.
+            Copyright 2026 Medhane NatCall. All rights reserved.
           </p>
           <div className="flex items-center gap-3 text-[#9d9d9d]">
             {socialLinks.map((link) => {
