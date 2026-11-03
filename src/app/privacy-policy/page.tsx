@@ -96,6 +96,7 @@ export default async function PrivacyPolicyPage() {
         `- Phone: ${contact.phone}`,
         `- WhatsApp: ${contact.supportWhatsapp}`,
         `- Address: ${contact.address}`,
+        "Natcall is operated by Medhane NatCall, a Norwegian sole proprietorship (org. no. 937 941 358), Kolstien 3B, 5097 Bergen, Norway.",
       ],
     },
   ];
